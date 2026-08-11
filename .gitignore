@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+
+# Secrets & config locale
+.env
+
+# Données sensibles — JAMAIS committées
+data/raw/
+data/processed/
+
+# Modèles ML entraînés
+*.joblib
+
+# Logs applicatifs
+*.log
