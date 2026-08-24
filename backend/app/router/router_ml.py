@@ -7,6 +7,21 @@ from sklearn.model_selection import cross_val_score
 EMBED_MODEL = "intfloat/multilingual-e5-small"
 MODEL_PATH = "backend/app/router/router_clf.joblib"
 
+# --- Fonction appelable par l'API (charge le modèle une seule fois) ---
+_clf = None
+_embed = None
+
+
+def route(question):
+    """Charge le classifieur sauvegardé et prédit l'intention d'une question."""
+    global _clf, _embed
+    if _clf is None:
+        _clf = joblib.load(MODEL_PATH)["clf"]
+        _embed = SentenceTransformer(EMBED_MODEL)
+    emb = _embed.encode([f"query: {question}"], normalize_embeddings=True)
+    return _clf.predict(emb)[0]
+
+
 TRAIN = [
     # RAG (connaissance / doc)
     ("Comment créer une adresse email professionnelle ?", "RAG"),
