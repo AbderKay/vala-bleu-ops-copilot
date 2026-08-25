@@ -13,6 +13,7 @@
 ![Ollama](https://img.shields.io/badge/Ollama-local%20LLM-000000?style=for-the-badge)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![NVIDIA](https://img.shields.io/badge/NVIDIA%20GPU-76B900?style=for-the-badge&logo=nvidia&logoColor=white)
 
 **Auteur :** Abderrahman Kayouh · [LinkedIn](https://www.linkedin.com/in/abderrahman-kayouh)
 
@@ -88,6 +89,7 @@ flowchart TB
 | Frontend | Streamlit |
 | Évaluation | RAGAS |
 | Conteneurisation | Docker + Docker Compose |
+| Matériel / Déploiement | Serveur on-premise — **GPU NVIDIA** |
 
 ---
 
@@ -163,8 +165,8 @@ streamlit run frontend/app.py        # → http://localhost:8501
 
 *(Nommer ses limites est un choix de rigueur — chaque point est un arbitrage conscient et documenté.)*
 
-- **Dataset de logs** simulé (public + injection d'anomalies contrôlée).
-- **Tickets** synthétiques ancrés sur la doc réelle *(intégration de tickets réels en cours)*.
+- **Jeu de logs** : logs réels du serveur, complétés par des logs publics + injection d'anomalies contrôlée.
+- **Jeu de tickets** : tickets réels intégrés, complétés par des tickets synthétiques ancrés sur la doc.
 - Pas de **fine-tuning** du LLM (RAG + prompt engineering).
 - **MVP mono-nœud** — sans RBAC ni alerting temps réel.
 - Évaluation RAGAS soumise au **biais du LLM juge**.
