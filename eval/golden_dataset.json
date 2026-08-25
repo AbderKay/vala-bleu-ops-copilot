@@ -1,0 +1,152 @@
+[
+  {
+    "question": "Comment accéder au control panel de vos comptes d’espace Revendeur ?",
+    "ground_truth": "Dans ce tutoriels nous vous montrons comment accéder au control panel de vos comptes d'espace revendeur. 1. Connectez vous à votre compte client en suivant les étapes au lien suivant: https://myvala.com/info/Se-connecter-au-compte-client 2. Cliquez sur “Espace Revendeur”. 3. Puis accéder à “Manage Hosting” section. 4. Choisissez l'hébergement que vous souhaitez et cliquez sur “Action”. 5. Puis cliquez sur “Login”. 6. Votre control panel est comme suite, veuillez consulter notre base de connaissance pour plus d’information sur comment l’utiliser : https://myvala.com/knowledgebase En vous présen",
+    "source": "https://www.myvala.com/info/comment-acceder-au-control-panel-de-vos-comptes-d-espace-revendeur"
+  },
+  {
+    "question": "Comment créer des pages catégorie de produit sur votre boutique ?",
+    "ground_truth": "Pour séparer les produits de chaque catégorie dans une page , veuillez suivre les étapes du ce tutoriel : Dans la page produit ajouter cliquez sur l’icône pour ajouter un contenu : 2. Cliquez sur APP et ajouter une boutique à votre page : 3. Dans le Panier d’achat cliquez sur Modifier : 4. En suite choisir la rubrique Catégorie : 5. Créer des catégories : 6. Ajouter des produits : 7. Sélectionner la catégorie de chaque produit et cliquez sur Enregistrer les modifications : 8. Ajouter une nouvelle page : 9. Cliquez sur plus d'option : 10. Plus d'options : 11. Sélectionner la catégorie des produ",
+    "source": "https://www.myvala.com/info/comment-creer-des-pages-categorie-de-produit-sur-votre-boutique"
+  },
+  {
+    "question": "Comment ajouter des images ?",
+    "ground_truth": "Pour rendre votre site plus attractive veuillez profiter de l'usage des image, dans ce sens et afin d'ajouter une image veuillez suivre les étapes suivantes depuis votre accès admin de votre site Mojoud : 1. Pour ajouter des image cliquez sur « contenu » : 2. Cliquez sur la rubrique Objets : 3. En suite l'option image pour ajouter des images : 4. Pour choisir une image : 5.Choisir votre image et cliquer sur le bouton « Enregistrer les modifications » En vous présente le descriptif des étapes abordés, dans cette vidéo :",
+    "source": "https://www.myvala.com/info/comment-ajouter-des-images"
+  },
+  {
+    "question": "Paramétrez votre domaine et personnalisez votre zone DNS ?",
+    "ground_truth": "Comment modifier les zones DNS d’un nom de domaine (.org, .com…) ? Vous pouvez appliquer votre propre configuration DNS facilement à votre portefeuille de domaines. 1.Connectez-vous à votre espace client puis cliquez sur la barre Domaines. 2. Choisissez le nom de domaine concerné. 3. Puis cliquez sur Gérer les serveurs de nom. 4. Pour ajouter un nouvel enregistrement DNS ou modifier le nom, toujours positionné sur Gérer, cliquez sur le bouton qui indique : utiliser des serveurs de noms personnalisés (inscrire ci-dessous) Utiliser les serveurs de nom par défaut (les serveurs de Vala) Utiliser d",
+    "source": "https://www.myvala.com/info/parametrez-votre-domaine-et-personnalisez-votre-zone-dns"
+  },
+  {
+    "question": "Comment masquer le logo du bas de la page ?",
+    "ground_truth": "Cette vidéo tutoriel est dédiée à suivre les trois étapes pour masquer le logo du bas de page 1. Trouver l’icône menu de bas de page 2. Utiliser l’option masquer il faut cliquer sur masquer pied de page promo 3. Et vous allez remarquer que le logo de pied de page est masqué En vous présente le descriptif des étapes abordés, dans cette vidéo :",
+    "source": "https://www.myvala.com/info/comment-masquer-le-logo-du-bas-de-la-page"
+  },
+  {
+    "question": "Validation de domaine ?",
+    "ground_truth": "Les certificats SSL de validation de domaine sont les plus élémentaires des trois types de certificats SSL / TLS. Alors que la validation de l'organisation et la validation étendue nécessitent plusieurs étapes au cours desquelles l'autorité de certification examine la société ou l'organisation demandant le certificat, la validation de domaine ne prend qu'une seule étape. Il vous suffit de prouver que vous êtes propriétaire du ou des domaines que vous demandez sur le certificat SSL. Les options disponibles pour prouver la propriété d'un domaine sont répertoriées ci-dessous. Veuillez noter que l",
+    "source": "https://www.myvala.com/info/validation-de-domaine"
+  },
+  {
+    "question": "Comment ajouter favicone ?",
+    "ground_truth": "Pour ajouter un favicone à votre site mojoud il suffit de suivi les étapes suivantes : Accédez à votre site mojoud : https://www.myvala.com/info/comment-installer-site-moujoud-nouvelle-version Cliquez sur rubrique Réglages(Settings) : En suite cliquez sur General Settings : 4. Changez le favicone de votre site : En vous présente le descriptif des étapes abordés, dans cette vidéo :",
+    "source": "https://www.myvala.com/info/comment-ajouter-favicone"
+  },
+  {
+    "question": "Renouveler mon contrat ?",
+    "ground_truth": "Vous pouvez renouveler votre contrat à tout moment. Pour cela, indiquez directement votre (vos) domaine(s) sur l’interface de commande de notre site. 1. Connectez vous à votre espace client puis cliquez sur Mes Factures 2. Visualiser vos factures non payés en cliquant sur le bouton Voir 3. Choisissez le mode de paiement que vous souhaitez (cb, PayPal, débit sur votre crédit prépayé, virement, chèque, mandat administratif ou postal selon le temps restant avant l'expiration du compte). En vous présente le descriptif des étapes abordés, dans la vidéo suivante :",
+    "source": "https://www.myvala.com/info/renouveler-mon-contrat"
+  },
+  {
+    "question": "Changement de titulaire de nom de domaine.ma ?",
+    "ground_truth": "Nous vous présentons la procédure du changement de titulaire nom de domaine.ma, comme suit: Remplir, signer et ou cacheter le formulaire ci-dessous http://registre.ma/wp-content/themes/domaine/pdf/Transfert_Titulaire.pdf Le communiquer au nouveau titulaire pour le cacheter et le signer de sa part Faire joindre la copie de la CIN du titulaire actuel Effectuer le paiement du transfert (le montant de transfert est le montant de l'enregistrement du domaine .ma) Scannez le tous et l'envoyer par e-mail sous info@bleu.ma NB : Veuillez aussi nous communiquer les informations du futur titulaire : nom, ",
+    "source": "https://www.myvala.com/info/changement-de-titulaire-de-nom-de-domaine-ma"
+  },
+  {
+    "question": "Comment importer un fichier .sql via la ligne de commande?",
+    "ground_truth": "Si vous n'arrivez pas à exporter ou importer votre base de données via phpmyadmin, il est possible d'utiliser l'accès ssh pour cette à condition que la base de données ne dépasse pas la taille de 1Go. 1- Transférez le fichier sql via ftp à votre dossier principal (autre que le public_html pour ne pas rendre la base de données disponible pour téléchargement via le web). 2- Connectez-vous via ssh comme indiquer dans le lien suivant : https://myvala.com/info/comment-se-connecter-via-ssh 3- Exécutez la commande suivante en remplaçant les paramètres en fonction de votre propre base de données : mys",
+    "source": "https://www.myvala.com/info/comment-importer-un-fichier-sql-via-la-ligne-de-commande"
+  },
+  {
+    "question": "Comment supprimer un thème via FTP ?",
+    "ground_truth": "Dans ce tutoriel nous vous montrons comment supprimer un thème via FTP: 1. Connectez-vous au back office de votre site WordPress. 2. Choisir le thème que vous voulez supprimer. 3. Ouvrez votre compte sur Filezilla et cliquez sur le dossier public_html . 4. Cliquez sur le dossier w p -content 5. Cliquez sur thème 6. Sélectionner le thème que vous voulez supprimer et cliquez droit puis supprimer . En vous présente le descriptif des étapes abordés, dans cette vidéo :",
+    "source": "https://www.myvala.com/info/comment-supprimer-un-theme-via-ftp"
+  },
+  {
+    "question": "Comment Utiliser la Nouvelle Fonctionnalité de Filtrage par Taille ?",
+    "ground_truth": "Il est possible de rechercher et de trier vos fichiers par taille directement depuis le gestionnaire de fichiers d'Opanel. Pour accéder à cette fonctionnalité, suivez les étapes ci-dessous : Connexion à Opanel : Connectez-vous à votre compte Opanel. https://www.myvala.com/info/comment-se-connecter-au-control-panel Accéder au Gestionnaire de Fichiers : Naviguez vers la rubrique \"File Manager\" (Gestionnaire de fichiers). Recherche par Taille : Vous pouvez utiliser la barre de recherche pour entrer la taille spécifique des fichiers que vous souhaitez afficher. Il est possible de trier les fichier",
+    "source": "https://www.myvala.com/info/comment-utiliser-la-nouvelle-fonctionnalite-de-filtrage-par-taille"
+  },
+  {
+    "question": "Comment définir les adresses mails transitaires?",
+    "ground_truth": "Pour partager les emails d'une adresse principale vers d'autre adresses mails, voici comment: 1.Saisissez l'adresse électronique à partir de laquelle vous souhaitez faire suivre vos messages et l'adresse électronique à laquelle vous souhaitez les faire parvenir. 2.Pour ajouter plusieurs redirections à partir du même courriel, il suffit de répéter le processus. Veuillez prévoir jusqu'à 30 minutes pour la mise en ligne des nouveaux expéditeurs.",
+    "source": "https://www.myvala.com/info/comment-definir-les-adresses-mails-transitaires"
+  },
+  {
+    "question": "Comment désactiver un plugin de votre site WordPress ?",
+    "ground_truth": "Dans ce tutoriel nous vous montrerons comment désactiver un plugin de votre site WordPress: 1. Connectez-vous à Back Office WordPress. 2. Sélectionnez Plugins > Installed Plugins . 3. Cochez la case à côté de Plugin pour sélectionner tous vos plugins. 4. Choisissez \"Deactivate\", puis cliquez sur “Apply”.",
+    "source": "https://www.myvala.com/info/comment-desactiver-un-plugin-de-votre-site-wordpress"
+  },
+  {
+    "question": "Valider votre domaine avec G Suite ?",
+    "ground_truth": "La configuration de votre nouveau compte nécessite en premier lieu l’accès à G Suite 1. La page de la mise en route s’ouvre. Vous taper votre nom d’entreprise choisir le nombre d’employés y compris. 2. Entrer vos coordonnées 3.Taper votre nom de domaine 4.Configurer votre nom de domaine pour que les messages soient envoyés directement à ce dernier 5.Indiquer une adresse e-mail secondaire 6.Vous devez indiquer votre nom d’utilisateur pour se connecter à votre compte G Suite et créer une adresse e-mail professionnelle 7.Choisissez votre forfait modulable ou annuel selon votre besoin 8. Pour reno",
+    "source": "https://www.myvala.com/info/valider-votre-domaine-avec-g-suite"
+  },
+  {
+    "question": "Comment ajouter une image ?",
+    "ground_truth": "Un site sans image est un manque d'attraction visuel!, alors voici comment vous pouvez ajouter vos beaux images à votre site Mojoud : 1. Ajouter un contenu ( Grande image avec texte) 2. Puis sélectionner une image 3. Cliquer sur cette touche ◙ pour afficher l’image que vous allez choisir 4. Si vous avez importé déjà des images vous allez la trouver dans le panneau de sélection des fichiers, sinon vous la télécharger de votre ordinateur en cliquant sur télécharger 5. Choisir une image puis c onfirmer votre choix en cliquant sur OK . 6. Appliquer votre sélection d’image 7. Toujours ne pas oublie",
+    "source": "https://www.myvala.com/info/comment-ajouter-une-image"
+  },
+  {
+    "question": "Comment ajouter un fichier à télécharger ?",
+    "ground_truth": "Vous souhaitez transmettre des fichiers à vos internautes sur votre site Internet (bulletin d'inscription, lettre type, composition musicale, vidéo) ? Voyons ensemble comment proposer à vos visiteurs de télécharger un fichier depuis une page de votre site: 1. En premier lieu ajouter un contenu 2. Puis cliquer sur le symbole joindre un fichier 3. Chercher le fichier que vous souhaitez télécharger dans la liste de sélection 4. Ou bien importer un nouveau fichier de votre ordinateur 4.1. Télécharger ZIP archive (Le ZIP est un format de fichier permettant l'archivage) 4.2. Le fichier est maintenan",
+    "source": "https://www.myvala.com/info/comment-ajouter-un-fichier-a-telecharger"
+  },
+  {
+    "question": "Comment déplacer un bloc ?",
+    "ground_truth": "Vous pouvez déplacer les blocs de votre site Mojoud en suivant les étapes suivant L orsque le curseur se transforme en main, cliquez sur l’icône et faites-le glisser pour le déplacer sur la page: 2. changer l’emplacement de votre bloc : En vous présente le descriptif des étapes abordés, dans cette vidéo :",
+    "source": "https://www.myvala.com/info/comment-deplacer-un-bloc"
+  },
+  {
+    "question": "Réinitialiser le mot de passe de votre compte client ?",
+    "ground_truth": "1. Accédez au lien suivant : www.myvala.com et cliquez sur \"Connexion\" 2. Cliquez sur Mot de passe oublié. 3. Puis entrez l’adresse mail avec laquelle vous vous êtes enregistré. Vous recevrez un mail avec un lien pour réinitialiser votre mot de passe. 4. Cliquez sur le lien envoyé à votre adresse mail pour réinitialiser le mot de passe de votre compte client 5. Saisissez le nouveau mot de passe d'accès. Puis accédez à votre espace client avec les nouveaux accès . En vous présente le descriptif des étapes abordés, dans cette vidéo :",
+    "source": "https://www.myvala.com/info/reinitialiser-le-mot-de-passe-de-votre-compte-client"
+  },
+  {
+    "question": "Rediriger nom de domaine vers un autre site web ?",
+    "ground_truth": "L'outil redirections de control panel permet d'ajouter des redirections d'un nom de domaine ou d'une page vers un autre domaine ou page. 1. Connectez vous au control panel: 2. Dans la partie Web Tools , cliquez sur Redirects 3. Entrer le nom de domaine puis le nom de domaine à rediriger et le type de redirection. Si vous souhaitez faire cette redirection pour du long terme, choisissez le type de transfert 301(permanent), si pour une courte période choisissez 302(temporel) . 4. Finalement cliquez sur Create Redirects En vous présente le descriptif des étapes abordés, dans la vidéo suivante :",
+    "source": "https://www.myvala.com/info/rediriger-nom-de-domaine-vers-un-autre-site-web"
+  },
+  {
+    "question": "La différence entre IMAP et POP ?",
+    "ground_truth": "IMAP (Internet Message Access Protocol) et POP (Post Office Protocol) sont deux protocoles de messagerie électronique utilisés pour récupérer les emails d'un serveur. Voici les principales différences entre les deux : POP (Post Office Protocol) : Quand l'utiliser : 1. Stockage local : POP télécharge les e-mails du serveur de messagerie vers l'ordinateur de votre client. Cela signifie que les e-mails sont stockés sur l'ordinateur client et ne restent généralement pas sur le serveur de messagerie. Donc, si votre client souhaite conserver ses e-mails localement, POP peut être approprié. 2. Accès ",
+    "source": "https://www.myvala.com/info/la-difference-entre-imap-et-pop"
+  },
+  {
+    "question": "Comment concevoir un bloc ?",
+    "ground_truth": "Pour concevoir un bloc dans votre site mojoud , veuillez suivre les étapes suivantes : Cliquez sur l'icône (+) pour ajouter un contenu à votre site : 2. Cliquez sur concevoir un bloc : 3. Personnaliser votre bloc : 4. Cliquez sur Appliquez les modifications : En vous présente le descriptif des étapes abordés, dans cette vidéo :",
+    "source": "https://www.myvala.com/info/comment-concevoir-un-bloc"
+  },
+  {
+    "question": "Comment ajouter une vidéo ?",
+    "ground_truth": "Comme d’autres modifications, ajouter une vidéo à votre site est simple : 1. Ajouter un contenu vidéo à la zone des contenus 2. Copier l’URL Youtube de la vidéo que vous choisissez puis cliquer sur continuer 3. Dès que vous confirmez, vous observez la vidéo placer dans votre site web En vous présente le descriptif des étapes abordés, dans cette vidéo :",
+    "source": "https://www.myvala.com/info/comment-ajouter-une-video"
+  },
+  {
+    "question": "Ajouter nom de domaine sans définir le dossier de destination ?",
+    "ground_truth": "1. Connectez- vous à votre control panel 2. Consultez le paramètre \" Domaines names \" et cliquez sur la rubrique Domains 3. Saisissez le nom de domaine dans le champ Domain 4. Finalement cliquez sur le bouton Add domain En vous présente le descriptif des étapes abordés, dans cette vidéo :",
+    "source": "https://www.myvala.com/info/ajouter-nom-de-domaine-sans-definir-le-dossier-de-destination"
+  },
+  {
+    "question": "Comment modifier une facture?",
+    "ground_truth": "Vos clients demande une modification sur la facture délivrée, c'est très simple avec notre logiciel. 1.Accédez aux factures 2.Cliquez sur paramètre puis sur \"modifier\" 3.Vous pouvez modérer la quantité, ajouter ou et supprimer un produit, modifier le taux de réduction 4.Puis cliquez sur modifier 5.Si votre facture est payée, créer un reçu en précisant le mode de paiement par exemple : virement 6.Télécharger votre facture finale comme suit:",
+    "source": "https://www.myvala.com/info/comment-modifier-une-facture"
+  },
+  {
+    "question": "Pourquoi utiliser le CDN ?",
+    "ground_truth": "Un réseau de diffusion de contenu (CDN) est un ensemble de serveurs répartis géographiquement qui travaillent ensemble pour fournir un contenu web aux utilisateurs de manière plus rapide et plus efficace. Voici quelques raisons pour lesquelles l'utilisation d'un CDN est bénéfique pour votre site web : 1. Amélioration des performances Le CDN permet de réduire le temps de chargement des pages en stockant des copies du contenu de votre site sur plusieurs serveurs situés à proximité des utilisateurs. Lorsque quelqu'un accède à votre site, le CDN fournit le contenu depuis le serveur le plus proche,",
+    "source": "https://www.myvala.com/info/pourquoi-utiliser-le-cdn"
+  },
+  {
+    "question": "Utiliser votre wallet myvala pour régler vos factures. ?",
+    "ground_truth": "Dans cet article nous vous montrons comment utiliser le solde de crédit disponible sur votre portefeuille pour payer les factures: 1. Connectez-vous à votre compte client 2. Si votre portefeuille est vide, vous pouvez ajouter des fonds à votre portefeuille en suivant les étapes au lien suivant: https://www.myvala.com/info/comment-ajouter-des-fonds-sur-mon-compte 3. Choisissez le produit/service à acheter ou à renouveler, passer la commande puis procéder au paiement de la facture. 4. Pour accéder à vos factures non payées, cliquez sur Factures Impayées . 5. Choisissez la facture est cliquez sur",
+    "source": "https://www.myvala.com/info/utiliser-votre-wallet-myvala-pour-regler-vos-factures"
+  },
+  {
+    "question": "Comment vider votre boite mail avec un client mail Outlook ?",
+    "ground_truth": "Vous n'arrivez pas à envoyer ou à recevoir les emails, vous avez atteint la limite de quota allouée à votre adresse mail et vous voulez la vider ? Dans ce tutoriel nous vous montrons comment vider votre boite mail depuis Outlook: 1. Connectez vous à votre adresse mail avec le client mail Outlook en suivant les étapes au lien suivant: https://www.myvala.com/info/Comment-configurer-ma-boite-mail-sur-Outlook-toutes-les-versions?systpl=myvala Assurez-vous de configurer votre adresse mail en IMAP. 2. Si vous voulez supprimer un ou plusieurs mails, veuillez les sélectionner puis cliquez sur Supprime",
+    "source": "https://www.myvala.com/info/comment-vider-votre-boite-mail-avec-un-client-mail-outlook"
+  },
+  {
+    "question": "Comment héberger plusieurs sites  avec différentes versions de PHP sur le même hébergement ?",
+    "ground_truth": "Si vous avez besoin d'héberger plusieurs sites Web sur le même hébergement qui utilisent différentes versions de PHP, nous vous recommandons d'utiliser l fichier \".htaccess\" pour spécifier la version de PHP pour chaque site. Suivez ces instructions pour y arriver : : 1. Connectez-vous à votre control panel : https://www.myvala.com/info/comment-se-connecter-au-control-panel 2. Cliquez sur 'File Manager' : 3. Ajouter le fichier .htaccess dans le répertoire racine de chaque site Web. 4. Ajoutez la ligne suivante au fichier .htaccess de chaque site : Pour PHP 5.6 : AddHandler application/x-httpd-p",
+    "source": "https://www.myvala.com/info/comment-heberger-plusieurs-sites-avec-differentes-versions-de-php-sur-le-meme-hebergement"
+  },
+  {
+    "question": "Comment activer le mode maintenance ?",
+    "ground_truth": "Le mode maintenance permet aux visiteurs de voir immédiatement que votre site Web est temporairement hors ligne. Pour activer /Désactiver le mode maintenance ,veuillez suivre les étapes suivantes : 1. Cliquez sur le bouton Réglages 2. La rubrique Paramètres généraux : 3. 3. Activer le mode maintenance : 4. Saisir le message à afficher en mode maintenance aux visiteurs de votre site: 5. Enregistrer les modifications En vous présente le descriptif des étapes abordés, dans cette vidéo :",
+    "source": "https://www.myvala.com/info/comment-activer-le-mode-maintenance"
+  }
+]
