@@ -72,7 +72,7 @@ flowchart TB
 | 🔎 **RAG documentaire** avec citation de source | 🧭 **Routeur agentique** d'intention |
 | 🛡️ **Anonymisation PII** avant indexation (RGPD) | 📊 **Détection d'anomalies** (Isolation Forest) |
 | 🔒 **Inférence LLM 100 % locale** (Ollama) | 📈 **Évaluation quantitative** (RAGAS) |
-| 🐳 Architecture **découplée & conteneurisée** | ⚡ Base : **225 articles réels** + tickets |
+| 🐳 Architecture **découplée & conteneurisée** | ⚡ Base : **225 articles réels** + tickets +logs |
 
 ---
 
