@@ -1,0 +1,31 @@
+# --- Core ---
+python-dotenv
+requests
+
+# --- Scraping ---
+beautifulsoup4
+lxml
+
+# --- RAG (ingestion / retrieval / génération) ---
+sentence-transformers
+langchain-text-splitters
+python-frontmatter
+psycopg[binary]
+pgvector
+ollama
+
+# --- ML / Logs (détection d'anomalies) ---
+scikit-learn
+pandas
+joblib
+
+# --- API + Frontend ---
+fastapi
+uvicorn
+streamlit
+
+# --- Tests ---
+pytest
+
+# NB : l'évaluation RAGAS (ragas, langchain-ollama, langchain-huggingface, datasets)
+# est installée dans un environnement dédié à versions figées (conflits de dépendances).
