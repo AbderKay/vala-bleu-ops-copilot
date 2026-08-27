@@ -58,30 +58,56 @@ flowchart TB
         Router{"Routeur agentique<br/>RAG · LOGS · MIXTE · AUTRE"}
         RAG["Pipeline RAG"]
         LOGS["Pipeline Logs"]
+        Anon["Anonymiseur PII · regex"]
+        IFo["Isolation Forest · scikit-learn"]
     end
 
-    subgraph MLP["🧠 Traitement — Python"]
-        Anon["Anonymiseur PII<br/>regex"]
+    subgraph GPUZONE["🎮 Inférence locale — GPU NVIDIA"]
+        LLM["LLM · Ollama · Qwen 2.5<br/>quantifié GGUF"]
         Embed["Embeddings<br/>multilingual-e5 · PyTorch"]
-        IFo["Isolation Forest<br/>scikit-learn"]
-        LLM["LLM local<br/>Ollama · Qwen 2.5"]
     end
 
-    DB[("PostgreSQL<br/>+ pgvector")]
+    DB[("PostgreSQL + pgvector")]
 
     UI -->|HTTP / JSON| API
     ST -->|HTTP / JSON| API
     API --> Router
     Router -->|connaissance| RAG
     Router -->|état système| LOGS
-    RAG --> Anon --> Embed --> DB
+    RAG --> Anon --> Embed
+    Embed --> DB
     RAG --> LLM
     LOGS --> IFo
     LLM -->|réponse + source| API
     IFo -->|IP anormales| API
 ```
 
-**Flux :** une question est **routée** (RAG / LOGS / MIXTE), puis traitée par le pipeline adapté. Le RAG récupère les passages pertinents et les transmet au **LLM local** qui répond **en citant sa source**. Le pipeline Logs détecte les **IP anormales** (brute-force, scan).
+**Flux :** une question est **routée** (RAG / LOGS / MIXTE / AUTRE), puis traitée par le pipeline adapté. Le RAG récupère les passages pertinents et les transmet au **LLM local (GPU)** qui répond **en citant sa source**. Le pipeline Logs détecte les **IP anormales** (brute-force, scan).
+
+### 🗄️ Modèle de données (MLD)
+
+```mermaid
+erDiagram
+    DOCUMENTS ||--o{ CHUNKS : "1 document → N chunks"
+    DOCUMENTS {
+        serial id PK
+        text source_url
+        text titre
+        text categorie
+        text langue
+        date date_collecte
+        timestamptz created_at
+    }
+    CHUNKS {
+        serial id PK
+        int document_id FK
+        int chunk_index
+        text content
+        vector embedding "384 dim (e5)"
+    }
+```
+
+Un **document** (article ou ticket) est découpé en plusieurs **chunks** ; chaque chunk est stocké avec son **embedding vectoriel** (`pgvector`). La clé étrangère `document_id` relie chaque chunk à sa source → **citation traçable**.
 
 ---
 
