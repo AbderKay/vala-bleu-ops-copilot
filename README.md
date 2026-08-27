@@ -48,18 +48,37 @@ Un hébergeur web jongle avec **deux flux d'information disjoints** :
 
 ```mermaid
 flowchart TB
-    UI[Interface web custom + Streamlit<br/>Chat / Monitoring / Qualité] -->|question| API[API FastAPI]
-    API --> Router{Routeur agentique<br/>RAG / LOGS / MIXTE / AUTRE}
+    subgraph FE["🖥️ Frontend"]
+        UI["Interface web custom<br/>HTML · CSS · JavaScript"]
+        ST["Dashboard Streamlit<br/>Python"]
+    end
 
-    Router -->|connaissance| RAG[Pipeline RAG]
-    Router -->|état système| LOGS[Pipeline Logs]
+    subgraph BE["⚙️ Backend — FastAPI · Python"]
+        API["API REST"]
+        Router{"Routeur agentique<br/>RAG · LOGS · MIXTE · AUTRE"}
+        RAG["Pipeline RAG"]
+        LOGS["Pipeline Logs"]
+    end
 
-    RAG --> Anon[Anonymiseur PII] --> Embed[Embeddings e5] --> Retr[Retriever pgvector] --> LLM[LLM local Ollama]
-    LOGS --> Parse[Parser Combined Log] --> Feat[Features par IP] --> IF[Isolation Forest]
+    subgraph MLP["🧠 Traitement — Python"]
+        Anon["Anonymiseur PII<br/>regex"]
+        Embed["Embeddings<br/>multilingual-e5 · PyTorch"]
+        IFo["Isolation Forest<br/>scikit-learn"]
+        LLM["LLM local<br/>Ollama · Qwen 2.5"]
+    end
 
-    Retr --> DB[(PostgreSQL + pgvector)]
+    DB[("PostgreSQL<br/>+ pgvector")]
+
+    UI -->|HTTP / JSON| API
+    ST -->|HTTP / JSON| API
+    API --> Router
+    Router -->|connaissance| RAG
+    Router -->|état système| LOGS
+    RAG --> Anon --> Embed --> DB
+    RAG --> LLM
+    LOGS --> IFo
     LLM -->|réponse + source| API
-    IF -->|IP anormales| API
+    IFo -->|IP anormales| API
 ```
 
 **Flux :** une question est **routée** (RAG / LOGS / MIXTE), puis traitée par le pipeline adapté. Le RAG récupère les passages pertinents et les transmet au **LLM local** qui répond **en citant sa source**. Le pipeline Logs détecte les **IP anormales** (brute-force, scan).
