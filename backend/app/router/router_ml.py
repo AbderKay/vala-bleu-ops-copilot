@@ -71,6 +71,17 @@ TRAIN = [
     ("Comment protéger mon site et quelles IP sont suspectes ?", "MIXTE"),
     ("Config DNS et anomalies de trafic des dernières 24h ?", "MIXTE"),
     ("Explique le transfert de domaine et l'état actuel du trafic", "MIXTE"),
+    # AUTRE (hors-sujet / salutations / conversation)
+    ("Bonjour, comment ça va ?", "AUTRE"),
+    ("Qui es-tu ?", "AUTRE"),
+    ("Vous êtes où ?", "AUTRE"),
+    ("Merci beaucoup", "AUTRE"),
+    ("Quel temps fait-il aujourd'hui ?", "AUTRE"),
+    ("Raconte-moi une blague", "AUTRE"),
+    ("Quelle heure est-il ?", "AUTRE"),
+    ("Au revoir", "AUTRE"),
+    ("Comment t'appelles-tu ?", "AUTRE"),
+    ("Que peux-tu faire ?", "AUTRE"),
 ]
 
 TEST = [
@@ -84,6 +95,8 @@ TEST = [
     ("Y a-t-il un pic d'erreurs 500 sur le serveur ?", "LOGS"),
     ("Explique la config DNS et vérifie s'il y a une anomalie de trafic", "MIXTE"),
     ("Comment sécuriser le SSH et y a-t-il des scans en cours ?", "MIXTE"),
+    ("Bonjour, qui es-tu ?", "AUTRE"),
+    ("Vous êtes où exactement ?", "AUTRE"),
 ]
 
 
@@ -105,7 +118,7 @@ def main():
         print(f"{ok} [attendu {attendu:5s} → prédit {p:5s}] {q}")
 
     acc = accuracy_score(yte, pred)
-    labels = ["RAG", "LOGS", "MIXTE"]
+    labels = ["RAG", "LOGS", "MIXTE", "AUTRE"]
     cm = confusion_matrix(yte, pred, labels=labels)
     print(f"\n🎯 Précision (Approche B) : {acc:.0%}  [cible ≥ 90%]")
     print("\nMatrice de confusion (lignes = vérité, colonnes = prédit)")

@@ -13,6 +13,7 @@ python-frontmatter
 psycopg[binary]
 pgvector
 ollama
+langdetect
 
 # --- ML / Logs (détection d'anomalies) ---
 scikit-learn

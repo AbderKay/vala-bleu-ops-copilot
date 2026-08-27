@@ -10,7 +10,7 @@ EMBED_MODEL = "intfloat/multilingual-e5-small"
 TOP_K = 4
 
 DB = dict(
-    host="localhost",
+    host=os.environ.get("POSTGRES_HOST", "localhost").strip(),
     port=int(os.environ.get("POSTGRES_PORT", "5433").strip()),
     dbname=os.environ["POSTGRES_DB"].strip(),
     user=os.environ["POSTGRES_USER"].strip(),

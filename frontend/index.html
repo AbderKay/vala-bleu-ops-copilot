@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vala Bleu Ops Copilot</title>
+<style>
+  :root{
+    --bg:#0b0f14; --panel:#141b23; --panel2:#0f151c; --border:#232c37;
+    --text:#e7ecf2; --muted:#8a97a6; --accent:#13c2bd; --accent2:#4f8bf9;
+    --danger:#ef5350; --ok:#3ecf8e; --radius:16px;
+    --font:'Segoe UI',system-ui,-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;
+    background-image:
+      radial-gradient(900px 500px at 15% -10%, rgba(19,194,189,.14), transparent 60%),
+      radial-gradient(800px 500px at 100% 0%, rgba(79,139,249,.12), transparent 55%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
+
+  /* Header */
+  header{display:flex;align-items:center;gap:14px;margin-bottom:6px;animation:fade .6s ease both}
+  .logo{font-size:2rem;filter:drop-shadow(0 4px 14px rgba(19,194,189,.5))}
+  h1{font-size:1.7rem;font-weight:800;letter-spacing:-.02em;
+     background:linear-gradient(90deg,var(--accent),var(--accent2));
+     -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .sub{color:var(--muted);font-size:.92rem;margin:2px 0 22px 46px;animation:fade .6s .05s ease both}
+  .pill{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;color:var(--accent);
+        border:1px solid rgba(19,194,189,.35);background:rgba(19,194,189,.08);
+        padding:3px 10px;border-radius:999px;margin-left:8px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 8px var(--ok);
+       animation:pulse 1.8s infinite}
+
+  /* Tabs */
+  .tabs{display:flex;gap:8px;margin-bottom:18px;animation:fade .6s .1s ease both}
+  .tab{background:var(--panel);border:1px solid var(--border);color:var(--muted);
+       padding:9px 18px;border-radius:12px;cursor:pointer;font-weight:600;font-size:.9rem;transition:.18s}
+  .tab:hover{color:var(--text);transform:translateY(-1px)}
+  .tab.active{color:#04211f;background:var(--accent);border-color:var(--accent)}
+
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);
+         padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.35);animation:rise .4s ease both}
+  .hidden{display:none}
+
+  /* Chat */
+  #messages{display:flex;flex-direction:column;gap:14px;min-height:220px;max-height:52vh;
+            overflow-y:auto;padding-right:6px;margin-bottom:16px}
+  .msg{max-width:82%;padding:13px 16px;border-radius:14px;line-height:1.5;animation:rise .35s ease both}
+  .msg.user{align-self:flex-end;background:linear-gradient(135deg,var(--accent),#0f9d99);color:#04211f;font-weight:500;border-bottom-right-radius:4px}
+  .msg.bot{align-self:flex-start;background:var(--panel2);border:1px solid var(--border);border-bottom-left-radius:4px}
+  .badge{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.04em;
+         padding:3px 10px;border-radius:999px;margin-bottom:8px}
+  .badge.RAG{background:rgba(79,139,249,.18);color:#7ea9ff}
+  .badge.LOGS{background:rgba(239,83,80,.18);color:#ff8a87}
+  .badge.MIXTE{background:rgba(62,207,142,.18);color:var(--ok)}
+  .sources{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px}
+  .chip{font-size:.72rem;color:var(--muted);background:var(--bg);border:1px solid var(--border);
+        padding:4px 9px;border-radius:8px}
+  .typing{display:inline-flex;gap:4px}
+  .typing span{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:blink 1.2s infinite}
+  .typing span:nth-child(2){animation-delay:.2s}.typing span:nth-child(3){animation-delay:.4s}
+
+  .composer{display:flex;gap:10px}
+  input[type=text]{flex:1;background:var(--panel2);border:1px solid var(--border);color:var(--text);
+     border-radius:12px;padding:13px 16px;font-size:.95rem;outline:none;transition:.18s}
+  input[type=text]:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(19,194,189,.15)}
+  button.send{background:var(--accent);color:#04211f;border:none;border-radius:12px;
+     padding:0 22px;font-weight:700;cursor:pointer;transition:.18s;font-size:.95rem}
+  button.send:hover{background:#0fb0ab;transform:translateY(-1px)}
+  button.send:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+  /* Monitoring */
+  .scanbtn{background:linear-gradient(135deg,var(--accent2),#3d6fd6);color:#fff;border:none;
+     border-radius:12px;padding:12px 22px;font-weight:700;cursor:pointer;transition:.18s}
+  .scanbtn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(79,139,249,.35)}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+  .stat{background:var(--panel2);border:1px solid var(--border);border-radius:14px;padding:18px;animation:rise .4s ease both}
+  .stat .k{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+  .stat .v{font-size:2rem;font-weight:800;margin-top:4px}
+  .stat.crit .v{color:var(--danger)}
+  .stat.ok .v{color:var(--accent)}
+  .anom{display:flex;align-items:center;gap:12px;background:var(--panel2);border:1px solid var(--border);
+        border-left:3px solid var(--danger);border-radius:10px;padding:11px 14px;margin-bottom:8px;animation:rise .35s ease both}
+  .anom .ip{font-family:ui-monospace,monospace;font-weight:700}
+  .anom .meta{margin-left:auto;font-size:.8rem;color:var(--muted);display:flex;gap:16px}
+  .bar{height:7px;border-radius:4px;background:linear-gradient(90deg,var(--danger),#ff8a87);margin-top:6px}
+
+  .err{color:var(--danger);background:rgba(239,83,80,.1);border:1px solid rgba(239,83,80,.3);
+       padding:12px 16px;border-radius:12px;font-size:.9rem}
+  .muted{color:var(--muted)}
+
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  @keyframes blink{0%,100%{opacity:.3}50%{opacity:1}}
+  @media(max-width:640px){.stats{grid-template-columns:1fr}.msg{max-width:92%}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="logo">🛰️</span>
+    <h1>Vala Bleu Ops Copilot</h1>
+    <span class="pill"><span class="dot"></span>local</span>
+  </header>
+  <p class="sub">Assistant agentique RAG + détection d'anomalies · inférence 100% locale</p>
+
+  <div class="tabs">
+    <div class="tab active" data-tab="chat">💬 Chat</div>
+    <div class="tab" data-tab="mon">📊 Monitoring</div>
+  </div>
+
+  <!-- CHAT -->
+  <section id="chat" class="panel">
+    <div style="display:flex;justify-content:flex-end;margin-bottom:10px">
+      <button id="newchat" title="Réinitialiser la conversation"
+        style="background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:10px;padding:6px 14px;cursor:pointer;font-size:.85rem">🔄 Nouveau chat</button>
+    </div>
+    <div id="messages">
+      <div class="msg bot">
+        <span class="badge RAG">ASSISTANT</span>
+        Bonjour 👋 Pose-moi une question technique (« Comment activer un certificat SSL ? »)
+        ou sur l'état des serveurs (« Y a-t-il une anomalie de trafic ? »). Je route automatiquement.
+      </div>
+    </div>
+    <div class="composer">
+      <input id="q" type="text" placeholder="Ta question…" value="Comment activer un certificat SSL ?" />
+      <button class="send" id="send">Envoyer</button>
+    </div>
+  </section>
+
+  <!-- MONITORING -->
+  <section id="mon" class="panel hidden">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+      <div>
+        <h3 style="font-size:1.1rem">Détection d'anomalies de trafic</h3>
+        <p class="muted" style="font-size:.85rem">Analyse des logs par Isolation Forest</p>
+      </div>
+      <div style="display:flex;gap:10px">
+        <button class="scanbtn" id="scan">🔍 Analyser</button>
+        <button class="scanbtn" id="live" style="background:linear-gradient(135deg,#13c2bd,#0f9d99)">▶️ Temps réel</button>
+      </div>
+    </div>
+    <div id="monout"></div>
+  </section>
+</div>
+
+<script>
+const API = ""; // même origine (servi par FastAPI)
+
+// Tabs
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  document.getElementById('chat').classList.toggle('hidden', t.dataset.tab!=='chat');
+  document.getElementById('mon').classList.toggle('hidden', t.dataset.tab!=='mon');
+});
+
+// Chat
+const messages=document.getElementById('messages'), input=document.getElementById('q'), send=document.getElementById('send');
+function add(cls, html){const d=document.createElement('div');d.className='msg '+cls;d.innerHTML=html;messages.appendChild(d);messages.scrollTop=messages.scrollHeight;return d;}
+function esc(s){return (s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
+
+async function ask(){
+  const q=input.value.trim(); if(!q) return;
+  add('user', esc(q)); input.value=''; send.disabled=true;
+  const load=add('bot','<span class="typing"><span></span><span></span><span></span></span>');
+  try{
+    const r=await fetch(API+'/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:q})});
+    const d=await r.json();
+    let html=`<span class="badge ${d.intent}">${d.intent}</span><div>${esc(d.answer)||'<span class="muted">—</span>'}</div>`;
+    if(d.sources&&d.sources.length){
+      html+='<div class="sources">'+d.sources.map(s=>`<span class="chip">📄 ${esc(s.titre)}</span>`).join('')+'</div>';
+    }
+    if(d.logs&&d.logs.anomalies&&d.logs.anomalies.length){
+      html+='<div class="sources">'+d.logs.anomalies.slice(0,5).map(a=>`<span class="chip">⚠️ ${esc(a.ip)}</span>`).join('')+'</div>';
+    }
+    load.innerHTML=html;
+  }catch(e){ load.innerHTML='<div class="err">⚠️ API injoignable. Lance l\'API (port 8000).</div>'; }
+  send.disabled=false;
+}
+send.onclick=ask; input.onkeydown=e=>{if(e.key==='Enter')ask();};
+
+// Nouveau chat : réinitialise la conversation
+const WELCOME = '<div class="msg bot"><span class="badge RAG">ASSISTANT</span>Bonjour 👋 Pose-moi une question technique ou sur l\'état des serveurs. Je route automatiquement.</div>';
+document.getElementById('newchat').onclick = () => { messages.innerHTML = WELCOME; input.value=''; input.focus(); };
+
+// Monitoring
+const monout = document.getElementById('monout');
+
+function renderMon(d, live){
+  const taux = d.total_ips ? (d.n_anomalies/d.total_ips*100).toFixed(1) : 0;
+  const max = Math.max(...d.anomalies.map(a=>a.n_requests), 1);
+  const liveTag = live ? ' <span class="badge LOGS">● LIVE</span>' : '';
+  const rows = d.anomalies.map(a=>`
+      <div class="anom">
+        <span class="ip">${esc(a.ip)}</span>
+        <span class="meta"><span>${a.n_requests} req</span><span>err ${(a.error_rate*100).toFixed(0)}%</span><span>${a.n_unique_paths} chemins</span></span>
+      </div>
+      <div class="bar" style="width:${(a.n_requests/max*100)}%"></div>`).join('')
+      || '<p class="muted">Aucune anomalie pour l\'instant.</p>';
+  monout.innerHTML = `
+    <div class="stats">
+      <div class="stat"><div class="k">IP analysées${liveTag}</div><div class="v">${d.total_ips}</div></div>
+      <div class="stat crit"><div class="k">Anomalies</div><div class="v">${d.n_anomalies}</div></div>
+      <div class="stat ok"><div class="k">${live ? 'Fenêtre (lignes)' : 'Taux'}</div><div class="v">${live ? (d.window_lines||0) : taux+'%'}</div></div>
+    </div>
+    <h4 style="margin:6px 0 12px;font-size:.95rem">IP anormales détectées</h4>
+    ${rows}`;
+}
+
+// Analyse batch (fichier fixe)
+document.getElementById('scan').onclick = async () => {
+  monout.innerHTML = '<p class="muted" style="margin-top:18px">Analyse en cours…</p>';
+  try{
+    const r = await fetch(API+'/logs/analyze',{method:'POST'});
+    renderMon(await r.json(), false);
+  }catch(e){ monout.innerHTML='<div class="err" style="margin-top:18px">⚠️ API injoignable (port 8000).</div>'; }
+};
+
+// Temps réel (couche speed — flux)
+let liveTimer = null;
+const liveBtn = document.getElementById('live');
+async function pollStream(){
+  try{
+    const r = await fetch(API+'/logs/stream',{method:'POST'});
+    renderMon(await r.json(), true);
+  }catch(e){ monout.innerHTML='<div class="err" style="margin-top:18px">⚠️ API injoignable.</div>'; }
+}
+liveBtn.onclick = () => {
+  if(liveTimer){
+    clearInterval(liveTimer); liveTimer = null;
+    liveBtn.textContent = '▶️ Temps réel';
+  } else {
+    liveBtn.textContent = '⏸ Arrêter';
+    pollStream();
+    liveTimer = setInterval(pollStream, 5000);
+  }
+};
+</script>
+</body>
+</html>

@@ -48,8 +48,8 @@ Un hébergeur web jongle avec **deux flux d'information disjoints** :
 
 ```mermaid
 flowchart TB
-    UI[Dashboard Streamlit<br/>Chat / Monitoring / Qualité] -->|question| API[API FastAPI]
-    API --> Router{Routeur agentique<br/>RAG / LOGS / MIXTE}
+    UI[Interface web custom + Streamlit<br/>Chat / Monitoring / Qualité] -->|question| API[API FastAPI]
+    API --> Router{Routeur agentique<br/>RAG / LOGS / MIXTE / AUTRE}
 
     Router -->|connaissance| RAG[Pipeline RAG]
     Router -->|état système| LOGS[Pipeline Logs]
@@ -70,10 +70,12 @@ flowchart TB
 
 | | |
 |---|---|
-| 🔎 **RAG documentaire** avec citation de source | 🧭 **Routeur agentique** d'intention |
+| 🔎 **RAG documentaire** avec citation de source | 🧭 **Routeur agentique** 4 intentions (RAG / LOGS / MIXTE / AUTRE) |
+| 🌍 **Multilingue** FR / EN / AR (retrieval cross-lingue) | 💬 **Repli conversationnel** pour le hors-sujet |
 | 🛡️ **Anonymisation PII** avant indexation (RGPD) | 📊 **Détection d'anomalies** (Isolation Forest) |
+| 🌊 **Monitoring temps réel** (architecture Lambda) | ⚡ **Scalable** : 1 M lignes en mémoire constante |
 | 🔒 **Inférence LLM 100 % locale** (Ollama) | 📈 **Évaluation quantitative** (RAGAS) |
-| 🐳 Architecture **découplée & conteneurisée** | ⚡ Base : **225 articles réels** + tickets +logs |
+| 🐳 Architecture **découplée & conteneurisée** | 🖥️ **2 frontends** (web custom + Streamlit) sur la même API |
 
 ---
 
@@ -82,11 +84,13 @@ flowchart TB
 | Couche | Technologie |
 |---|---|
 | Inférence LLM | Ollama — Qwen 2.5 (quantifié) |
-| Embeddings | `intfloat/multilingual-e5` (FR/EN) |
+| Embeddings | `intfloat/multilingual-e5` (FR / EN / AR) |
+| Multilingue | `langdetect` + retrieval cross-lingue |
 | Base de données | PostgreSQL 16 + `pgvector` |
 | Détection d'anomalies | scikit-learn — Isolation Forest |
+| Traitement temps réel | Architecture **Lambda** (couches batch + speed) |
 | Backend API | FastAPI |
-| Frontend | Streamlit |
+| Frontend | Interface web custom + Streamlit |
 | Évaluation | RAGAS |
 | Conteneurisation | Docker + Docker Compose |
 | Matériel / Déploiement | Serveur on-premise — **GPU NVIDIA** |
@@ -140,10 +144,10 @@ python backend/app/rag/ingestion_pipeline.py
 **Architecture découplée → deux services :**
 
 ```bash
-# Terminal 1 — API
-python backend/app/main.py           # → http://127.0.0.1:8000/docs
+# Terminal 1 — API + interface web custom
+python backend/app/main.py           # UI → http://127.0.0.1:8000/  ·  API docs → /docs
 
-# Terminal 2 — Dashboard
+# Terminal 2 — Dashboard Streamlit (optionnel)
 streamlit run frontend/app.py        # → http://localhost:8501
 ```
 
@@ -156,6 +160,7 @@ streamlit run frontend/app.py        # → http://localhost:8501
 | 🧭 **Routeur** | Précision (validation croisée 5-fold) | **95 % ± 4 %** *(classifieur)* · 60 % *(prompt-based)* |
 | 📊 **Détection d'anomalies** | Recall / Faux positifs *(anomalies injectées)* | **100 % / 4 %** |
 | 🔎 **RAG** | Faithfulness, Answer Relevancy *(RAGAS)* | *évaluation finale en cours* |
+| ⚡ **Scalabilité (logs)** | Débit / mémoire *(traitement en flux)* | **~42 k lignes/sec · 0,3 Mo** pour 1 M lignes |
 
 > **Protocole anomalies :** injection contrôlée de brute-force + scans (labels connus) → mesure objective du Recall et du taux de faux positifs.
 
