@@ -62,7 +62,7 @@ flowchart TB
         IFo["Isolation Forest · scikit-learn"]
     end
 
-    subgraph GPUZONE["🎮 Inférence locale — GPU NVIDIA"]
+    subgraph GPUZONE[" Inférence locale — GPU NVIDIA"]
         LLM["LLM · Ollama · Qwen 2.5<br/>quantifié GGUF"]
         Embed["Embeddings<br/>multilingual-e5 · PyTorch"]
     end
@@ -220,11 +220,6 @@ streamlit run frontend/app.py        # → http://localhost:8501
 - Pas de **fine-tuning** du LLM (RAG + prompt engineering).
 - **MVP mono-nœud** — sans RBAC ni alerting temps réel.
 - Évaluation RAGAS soumise au **biais du LLM juge**.
-
----
-
-## 🗺️ Perspectives
-
 - Déploiement **on-premise** sur serveur GPU du client.
 - Intégration des **tickets réels** + golden dataset étendu.
 - Étude comparative de **quantification** (GGUF vs AWQ) sur la qualité RAG.
